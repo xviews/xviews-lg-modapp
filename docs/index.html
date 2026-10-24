@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Michis LG ModApp</title>
+<meta name="description" content="Kostenloses Windows-Tool für gerootete LG webOS-TVs: Werbung blocken, Firmware-Updates sperren, LG-Apps ausblenden, Tasten der Fernbedienung neu belegen. Alles umkehrbar.">
+<meta property="og:title" content="Michis LG ModApp">
+<meta property="og:description" content="Mehr aus dem gerooteten LG-TV holen: Werbung weg, Root geschützt, Apps aufgeräumt, Tasten frei belegt.">
+<meta property="og:type" content="website">
+<link rel="icon" type="image/png" href="img/logo.png">
+<link rel="stylesheet" href="fonts/inter.css">
+<style>
+:root {
+	--bg: #0c0b16; --bg2: #13111f; --card: #191628; --line: #2a2642;
+	--text: #f4f2fb; --muted: #a8a2c2; --accent: #4cc3ff; --accent2: #e0409a; --ok: #22c55e;
+	--radius: 18px;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; background: var(--bg); color: var(--text); font: 17px/1.6 Inter, "Segoe UI", system-ui, sans-serif; -webkit-font-smoothing: antialiased; }
+a { color: var(--accent); }
+.wrap { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
+
+header.top { position: sticky; top: 0; z-index: 10; background: #0c0b16d9; backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); }
+header.top .wrap { display: flex; align-items: center; gap: 12px; height: 60px; }
+header.top img { width: 30px; height: 30px; border-radius: 8px; }
+header.top .name { font-weight: 700; }
+header.top nav { margin-left: auto; display: flex; gap: 20px; }
+header.top nav a { color: var(--muted); text-decoration: none; font-size: 15px; }
+header.top nav a:hover { color: var(--text); }
+
+.hero { position: relative; overflow: hidden; padding: 72px 0 56px; }
+.hero::before { content: ""; position: absolute; left: -250px; top: -250px; width: 800px; height: 800px; background: radial-gradient(closest-side, #e0409a33, transparent); pointer-events: none; }
+.hero::after { content: ""; position: absolute; right: -250px; bottom: -300px; width: 800px; height: 800px; background: radial-gradient(closest-side, #4cc3ff22, transparent); pointer-events: none; }
+.hero .wrap { display: grid; grid-template-columns: 1fr 1.25fr; gap: 48px; align-items: center; position: relative; z-index: 1; }
+.app { display: flex; align-items: center; gap: 14px; margin-bottom: 8px; }
+.app img { width: 64px; height: 64px; border-radius: 16px; box-shadow: 0 10px 30px #0008; }
+.kicker { color: var(--accent2); font-weight: 700; }
+h1 { font-size: clamp(40px, 5.6vw, 62px); line-height: 1.04; margin: 10px 0 18px; letter-spacing: -.02em; }
+h1 em { font-style: normal; background: linear-gradient(90deg, var(--accent2), var(--accent)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.lead { font-size: 20px; color: #d9d4ec; margin: 0 0 28px; }
+.buttons { display: flex; flex-wrap: wrap; gap: 12px; }
+.btn { display: inline-flex; align-items: center; gap: 10px; padding: 14px 22px; border-radius: 12px; font-weight: 700; text-decoration: none; font-size: 17px; }
+.btn.primary { background: var(--ok); color: #04210f; box-shadow: 0 8px 30px #22c55e40; }
+.btn.primary:hover { filter: brightness(1.08); }
+.btn.ghost { border: 1px solid var(--line); color: var(--text); }
+.btn.ghost:hover { border-color: var(--accent); }
+.btn svg { width: 20px; height: 20px; }
+.small { font-size: 14px; color: var(--muted); margin-top: 14px; }
+.shot { border-radius: var(--radius); overflow: hidden; border: 1px solid var(--line); box-shadow: 0 30px 80px #000a; }
+.shot img { display: block; width: 100%; }
+
+section { padding: 64px 0; }
+section.alt { background: var(--bg2); border-block: 1px solid var(--line); }
+h2 { font-size: clamp(28px, 3.6vw, 38px); margin: 0 0 10px; letter-spacing: -.01em; }
+.sub { color: var(--muted); margin: 0 0 32px; max-width: 760px; }
+
+.grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+.card { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 22px; }
+.card .ico { width: 42px; height: 42px; border-radius: 12px; display: grid; place-items: center; background: linear-gradient(135deg, #e0409a33, #4cc3ff22); margin-bottom: 12px; }
+.card .ico svg { width: 22px; height: 22px; stroke: var(--accent); }
+.card h3 { margin: 0 0 6px; font-size: 19px; }
+.card p { margin: 0; color: var(--muted); font-size: 15.5px; }
+
+.feature { display: grid; grid-template-columns: 1fr 1.4fr; gap: 44px; align-items: center; margin-top: 56px; }
+.feature.rev { grid-template-columns: 1.4fr 1fr; }
+.feature.rev .text { order: 2; }
+.feature h3 { font-size: 26px; margin: 0 0 10px; }
+.feature ul { padding-left: 20px; margin: 12px 0 0; color: #d9d4ec; }
+.feature li { margin: 6px 0; }
+.feature .text p { color: var(--muted); margin: 0; }
+
+table { width: 100%; border-collapse: collapse; margin-top: 8px; }
+th, td { text-align: left; padding: 14px 12px; border-bottom: 1px solid var(--line); }
+th { color: var(--muted); font-weight: 600; font-size: 14px; }
+td a { font-weight: 600; }
+.steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 32px; }
+.note { margin-top: 24px; padding: 16px 20px; border-left: 4px solid var(--accent2); background: #e0409a14; border-radius: 0 12px 12px 0; color: #e7e2f5; font-size: 15.5px; }
+code { background: #ffffff12; padding: 1px 6px; border-radius: 6px; font-size: .92em; }
+
+.story { max-width: 760px; }
+.story p { color: #d9d4ec; }
+.story .claim { font-weight: 700; font-size: 20px; color: var(--text); }
+
+footer { padding: 40px 0 60px; color: var(--muted); font-size: 14.5px; border-top: 1px solid var(--line); }
+footer .wrap { display: flex; justify-content: space-between; align-items: center; gap: 24px 40px; flex-wrap: wrap; }
+footer .brand { display: flex; align-items: center; gap: 16px; max-width: 640px; }
+footer .brand img { width: 56px; height: auto; flex: none; }
+footer .brand b { display: block; color: var(--text); font-size: 15.5px; margin-bottom: 2px; }
+footer .brand p { margin: 0; line-height: 1.5; }
+footer .brand > div { min-width: 0; }
+footer .links { display: flex; gap: 22px; flex-wrap: wrap; }
+footer .links a { color: var(--muted); text-decoration: none; font-weight: 600; }
+footer .links a:hover { color: var(--accent); }
+
+@media (max-width: 900px) {
+	.hero .wrap, .feature, .feature.rev { grid-template-columns: 1fr; }
+	.feature.rev .text { order: 0; }
+	.grid, .steps { grid-template-columns: 1fr 1fr; }
+	header.top nav a.hide-sm { display: none; }
+}
+@media (max-width: 620px) {
+	body { font-size: 16px; }
+	.wrap { padding: 0 16px; }
+	.grid, .steps { grid-template-columns: 1fr; }
+	.hero { padding-top: 40px; }
+	th:nth-child(2), td:nth-child(2) { display: none; }
+}
+</style>
+</head>
+<body>
+
+<header class="top">
+	<div class="wrap">
+		<img src="img/logo.png" alt="">
+		<span class="name">LG ModApp</span>
+		<nav>
+			<a href="#funktionen" class="hide-sm">Funktionen</a>
+			<a href="#download" class="hide-sm">Download</a>
+			<a href="https://github.com/xviews/xviews-lg-modapp">GitHub</a>
+		</nav>
+	</div>
+</header>
+
+<div class="hero">
+	<div class="wrap">
+		<div>
+			<div class="app"><img src="img/logo.png" alt=""><span class="kicker">Michis LG ModApp</span></div>
+			<h1>Mehr aus deinem LG-TV, <em>mit einem Klick.</em></h1>
+			<p class="lead">Kostenloses Windows-Tool für gerootete LG webOS-TVs: Werbung weg, Root vor Updates geschützt, LG-Apps aufgeräumt und Tasten der Fernbedienung frei belegt. Alles umkehrbar.</p>
+			<div class="buttons">
+				<a class="btn primary" href="https://github.com/xviews/xviews-lg-modapp/releases/latest/download/MichisLgModApp.exe">
+					<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0l-5-5m5 5l5-5M4 20h16"/></svg>
+					Download <span id="ver"></span>
+				</a>
+				<a class="btn ghost" href="#funktionen">Was kann sie?</a>
+			</div>
+			<p class="small">Kostenlos · Windows 10/11 (64 Bit) · ohne Installation · Privates Projekt ohne Verbindung zu LG Electronics</p>
+		</div>
+		<div class="shot"><img src="img/1-uebersicht.png" alt="Übersicht der ModApp mit dem Status aller Funktionen"></div>
+	</div>
+</div>
+
+<section id="funktionen" class="alt">
+	<div class="wrap">
+		<h2>Alles, was dein gerooteter TV braucht</h2>
+		<p class="sub">Werbekacheln, Updates, die den Root entfernen, ein Dutzend LG-Apps, die niemand braucht, und Live Plus, das mitschaut. Die ModApp findet deinen TV im Netzwerk und stellt alles mit ein paar Haken ein.</p>
+		<div class="grid">
+			<div class="card"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M5.7 5.7l12.6 12.6"/></svg></div><h3>Werbung blocken</h3><p>Sperrt LGs Werbe- und Analyse-Server. Content Store und Apps funktionieren weiter, eigene Domains lassen sich ergänzen.</p></div>
+			<div class="card"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/></svg></div><h3>Root schützen</h3><p>Sperrt LGs Firmware-Update-Server, denn ein Update entfernt den Root. Zusätzlich zur Sperre im Homebrew Channel.</p></div>
+			<div class="card"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/><path d="M3 3l18 18"/></svg></div><h3>Datenschutz</h3><p>Live Plus aus, keine Zustimmung zu Zuschauerdaten und personalisierter Werbung, Telemetrie gestoppt.</p></div>
+			<div class="card"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><path d="M15 17.5h5"/></svg></div><h3>Apps aufräumen</h3><p>LG-Apps ausblenden, die sich sonst nicht entfernen lassen, mit Erklärung zu jeder App und Vorschlag, was weg kann.</p></div>
+			<div class="card"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="2" width="10" height="20" rx="3"/><circle cx="12" cy="8" r="2"/><path d="M10 14h.01M14 14h.01M10 17h.01M14 17h.01"/></svg></div><h3>Tasten belegen</h3><p>Taste drücken, die App erkennt sie. Dann direkt auf Sky, Xbox oder YouTube schalten, Bildschirm aus, Ambilight an/aus.</p></div>
+			<div class="card"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L4 14h7l-1 8 9-12h-7z"/></svg></div><h3>Flüssiger &amp; aktuell</h3><p>Weniger vorgeladene Apps, mehr freier Speicher. App-Update-Zwang aufheben, YouTube-Logo für AdFree, Updates der App mit einem Klick.</p></div>
+		</div>
+
+		<div class="feature">
+			<div class="text">
+				<h3>Ein Haken pro Funktion</h3>
+				<p>Wirkt sofort und nach jedem Neustart. Abschalten stellt den vorherigen Zustand wieder her.</p>
+				<ul>
+					<li>Keine Systemdateien verändert</li>
+					<li>Vorherige Einstellungen werden gesichert</li>
+					<li>Alles entfernen mit einem Klick</li>
+				</ul>
+			</div>
+			<div class="shot"><img src="img/2-funktionen.png" alt="Funktionen einzeln an- und abschalten" loading="lazy"></div>
+		</div>
+
+		<div class="feature rev">
+			<div class="text">
+				<h3>Weg mit dem Ballast</h3>
+				<p>Musik, Browser, Galerie, Anleitung, Fernwartung: LG-Apps, die niemand braucht, verschwinden aus der Home-Leiste.</p>
+				<ul>
+					<li>Erklärung zu jeder App</li>
+					<li>Vorschlag, was gefahrlos weg kann</li>
+					<li>Wieder einblenden jederzeit möglich</li>
+				</ul>
+			</div>
+			<div class="shot"><img src="img/3-apps.png" alt="LG-Apps ausblenden mit Erklärungen" loading="lazy"></div>
+		</div>
+
+		<div class="feature">
+			<div class="text">
+				<h3>Deine Fernbedienung, deine Tasten</h3>
+				<p>Über LG Input Hook, den die App auf Wunsch gleich mitinstalliert. Wirkt sofort, ohne Neustart.</p>
+			</div>
+			<div class="shot"><img src="img/4-tasten.png" alt="Tasten der Fernbedienung neu belegen" loading="lazy"></div>
+		</div>
+	</div>
+</section>
+
+<section id="download">
+	<div class="wrap">
+		<h2>Download</h2>
+		<p class="sub">Für Windows 10 und 11 (64 Bit). Einfach herunterladen und starten, eine Installation ist nicht nötig. Der TV braucht Root, den Homebrew Channel und eingeschaltetes SSH.</p>
+		<table>
+			<tr><th>Datei</th><th>Größe</th><th>Hinweis</th></tr>
+			<tr><td><a href="https://github.com/xviews/xviews-lg-modapp/releases/latest/download/MichisLgModApp.exe">MichisLgModApp.exe</a></td><td>ca. 60 MB</td><td>läuft sofort</td></tr>
+		</table>
+
+		<div class="steps">
+			<div class="card"><h3>Erstes Verbinden</h3><p>Einmal das root-Passwort des TVs eingeben (Homebrew-Standard: <code>alpine</code>). Danach meldet sich die App mit einem SSH-Schlüssel an.</p></div>
+			<div class="card"><h3>SmartScreen</h3><p>Meldet Windows „Unbekannter Herausgeber“, auf „Weitere Informationen“ und dann auf „Trotzdem ausführen“ klicken. Die EXE ist nicht signiert, weil ein Zertifikat Geld kostet.</p></div>
+			<div class="card"><h3>Geprüft</h3><p>Prüfsumme (SHA-256) und VirusTotal-Ergebnis jeder Version stehen in den <a href="https://github.com/xviews/xviews-lg-modapp/releases">Release-Notizen</a>.</p></div>
+		</div>
+
+		<div class="note"><b>Wichtig:</b> Setzt einen gerooteten TV voraus, Nutzung auf eigene Verantwortung. Getestet mit LG 65SK8500LLA und webOS 4.4. Das Tool sammelt keine Daten und spricht nur mit deinem TV, mit GitHub für die Update-Suche und mit dem Homebrew-Katalog, wenn du LG Input Hook installierst. Alle Details stehen in der <a href="https://github.com/xviews/xviews-lg-modapp#readme">Beschreibung auf GitHub</a>.</div>
+	</div>
+</section>
+
+<section class="alt">
+	<div class="wrap story">
+		<h2>Über den Namen</h2>
+		<p>Eigentlich sollte es nur ein Skript für den eigenen Fernseher werden: Werbung weg, Updates aus. Dann hatte ein Kumpel denselben TV, und aus dem Skript wurde eine App, die man einfach weitergeben kann.</p>
+		<p class="claim">Michis LG ModApp: TV finden, Haken setzen, fertig.</p>
+	</div>
+</section>
+
+<footer>
+	<div class="wrap">
+		<div class="brand">
+			<img src="https://raw.githubusercontent.com/xviews/xviews/main/bilder/xviews.png" alt="Xviews">
+			<div>
+				<b>© 2026 Xviews</b>
+				<p>Kostenlos für die private Nutzung (<a href="https://github.com/xviews/xviews-lg-modapp/blob/main/LICENSE.txt">Nutzungsbedingungen</a>). „LG“ und „webOS“ sind Marken von LG Electronics.</p>
+			</div>
+		</div>
+		<div class="links">
+			<a href="https://github.com/xviews/xviews-lg-modapp">GitHub</a>
+			<a href="https://github.com/xviews/xviews-lg-modapp/issues/new/choose">Fehler melden</a>
+			<a href="https://github.com/xviews">Weitere Xviews-Tools</a>
+		</div>
+	</div>
+</footer>
+
+<script>
+fetch("https://api.github.com/repos/xviews/xviews-lg-modapp/releases/latest")
+	.then((r) => (r.ok ? r.json() : null))
+	.then((j) => { if (j && j.tag_name) document.getElementById("ver").textContent = j.tag_name; })
+	.catch(() => { });
+</script>
+</body>
+</html>
