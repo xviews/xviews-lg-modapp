@@ -1,8 +1,8 @@
 <p align="center">
-  <img src="bilder/logo.png" width="104" alt="Michis LG ModApp">
+  <img src="bilder/logo.png" width="104" alt="Xviews LG ModApp">
 </p>
 
-<h1 align="center">Michis LG ModApp</h1>
+<h1 align="center">Xviews LG ModApp</h1>
 
 <p align="center">
   <b>Mehr aus deinem gerooteten LG-TV holen, mit einem Klick.</b><br>
@@ -10,7 +10,7 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/xviews/xviews-lg-modapp/releases/latest/download/MichisLgModApp.exe"><img src="https://img.shields.io/github/v/release/xviews/xviews-lg-modapp?label=Download%20MichisLgModApp.exe&style=for-the-badge&logo=windows&logoColor=white&color=2ea44f" alt="Download MichisLgModApp.exe"></a>
+  <a href="https://github.com/xviews/xviews-lg-modapp/releases/latest/download/XviewsLgModApp.exe"><img src="https://img.shields.io/github/v/release/xviews/xviews-lg-modapp?label=Download%20XviewsLgModApp.exe&style=for-the-badge&logo=windows&logoColor=white&color=2ea44f" alt="Download XviewsLgModApp.exe"></a>
 </p>
 
 <p align="center">
@@ -86,13 +86,13 @@ Werbekacheln im Home-Menü, Firmware-Updates, die den Root wieder entfernen, ein
 
 | Datei | Größe | Hinweis |
 |---|---|---|
-| [`MichisLgModApp.exe`](https://github.com/xviews/xviews-lg-modapp/releases/latest/download/MichisLgModApp.exe) | ca. 60 MB | läuft sofort, keine Installation |
+| [`XviewsLgModApp.exe`](https://github.com/xviews/xviews-lg-modapp/releases/latest/download/XviewsLgModApp.exe) | ca. 60 MB | läuft sofort, keine Installation |
 
 **Voraussetzungen:** Windows 10 oder 11 (64 Bit), TV im selben Netzwerk. ➡️ Alle Versionen und Prüfsummen unter **[Releases](../../releases)**.
 
 **Getestet mit:** LG 65SK8500LLA, webOS 4.4.2, Firmware 05.50.15. Andere webOS-4-Modelle sollten genauso laufen. Bei neueren webOS-Versionen bitte Rückmeldung geben.
 
-**Sicherheit:** Die Prüfsumme (SHA-256) jeder Version steht im Release-Text. Mit `Get-FileHash .\MichisLgModApp.exe` in PowerShell kannst du sie selbst prüfen. Der Release-Text verlinkt außerdem das VirusTotal-Ergebnis.
+**Sicherheit:** Die Prüfsumme (SHA-256) jeder Version steht im Release-Text. Mit `Get-FileHash .\XviewsLgModApp.exe` in PowerShell kannst du sie selbst prüfen. Der Release-Text verlinkt außerdem das VirusTotal-Ergebnis.
 
 <details>
 <summary><b>Beim ersten Start</b></summary>
@@ -144,4 +144,6 @@ Ohne die webOS-Homebrew-Community ginge das alles nicht: [webosbrew](https://git
 
 ## Über den Namen
 
-Eigentlich sollte es nur ein Skript für meinen eigenen Fernseher werden: Werbung weg, Updates aus. Dann hatte ein Kumpel denselben TV, und aus dem Skript wurde eine App, die man einfach weitergeben kann. Deshalb heißt sie, wie sie heißt: **Michis LG ModApp**, von Michi (Xviews), für jeden mit einem gerooteten LG.
+**X** steht für das Unbekannte, **views** fürs Sehen. Xviews heißt also: das Unbekannte sehen. Den Namen gibt es seit Counter-Strike 1.5, später stand er für meine HDR-Fotos im Netz, heute für meine Tools.
+
+Auch ein gerooteter LG-TV steckt voller Unbekannter: Welche Server liefern die Werbung? Welche der vielen LG-Apps braucht man wirklich? Und warum ist der Root nach einem Update plötzlich weg? Angefangen hat es mit einem kleinen Skript für den eigenen Fernseher. Dann hatte ein Kumpel denselben TV, und aus dem Skript wurde eine App, die man einfach weitergeben kann: die **Xviews LG ModApp**.

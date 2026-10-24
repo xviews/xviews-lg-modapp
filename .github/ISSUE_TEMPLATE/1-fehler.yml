@@ -25,7 +25,7 @@ body:
   - type: input
     id: version
     attributes:
-      label: Version von Michis LG ModApp
+      label: Version von Xviews LG ModApp
       description: Steht in der App unter Info.
       placeholder: z. B. 1.0.0
     validations:
