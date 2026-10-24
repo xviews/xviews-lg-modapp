@@ -1,0 +1,73 @@
+name: Fehler melden
+description: Etwas funktioniert nicht wie erwartet
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Danke fürs Melden! Je genauer die Angaben, desto schneller lässt sich der Fehler finden.
+        Bitte keine persönlichen Daten (Passwörter, root-Passwort, SSH-Schlüssel o. Ä.) eintragen.
+  - type: textarea
+    id: was
+    attributes:
+      label: Was ist passiert?
+      description: Was hast du erwartet, was ist stattdessen passiert? Fehlermeldungen bitte wörtlich einfügen.
+    validations:
+      required: true
+  - type: textarea
+    id: schritte
+    attributes:
+      label: Wie lässt sich der Fehler nachstellen?
+      placeholder: |
+        1. ...
+        2. ...
+        3. ...
+  - type: input
+    id: version
+    attributes:
+      label: Version von Michis LG ModApp
+      description: Steht in der App unter Info.
+      placeholder: z. B. 1.0.0
+    validations:
+      required: true
+  - type: dropdown
+    id: windows
+    attributes:
+      label: Windows
+      options:
+        - Windows 11
+        - Windows 10
+        - Anderes
+    validations:
+      required: true
+  - type: input
+    id: tv
+    attributes:
+      label: TV-Modell und Firmware
+      description: Steht in der App unter Übersicht → Fernseher.
+      placeholder: z. B. 65SK8500LLA, Firmware 05.50.15, webOS 4.4
+    validations:
+      required: true
+  - type: dropdown
+    id: bereich
+    attributes:
+      label: Wobei?
+      options:
+        - TV suchen / Verbinden
+        - Installieren / Aktualisieren
+        - Funktionen
+        - Apps ausblenden / deinstallieren
+        - Tasten belegen
+        - Update der App
+        - Anderes
+  - type: textarea
+    id: log
+    attributes:
+      label: Protokoll
+      description: Unten in der App „Protokoll“ aufklappen und den Inhalt hier einfügen.
+      render: text
+  - type: textarea
+    id: bilder
+    attributes:
+      label: Screenshots oder Fotos
+      description: Gern per Drag & Drop hier hineinziehen.
