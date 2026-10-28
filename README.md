@@ -6,7 +6,7 @@
 
 <p align="center">
   <b>Mehr aus deinem gerooteten LG-TV holen, mit einem Klick.</b><br>
-  Werbung weg, Root geschützt, Apps aufgeräumt, Tasten frei belegt. Alles umkehrbar.
+  Werbung weg, Root geschützt, Apps aufgeräumt, Tasten frei belegt, Ambilight im Griff. Alles umkehrbar.
 </p>
 
 <p align="center">
@@ -24,7 +24,7 @@
 
 ---
 
-Werbekacheln im Home-Menü, Firmware-Updates, die den Root wieder entfernen, ein Dutzend LG-Apps, die niemand braucht, und Live Plus, das mitschaut, was gerade läuft. **Die ModApp räumt das auf:** Das kostenlose Windows-Tool findet deinen TV im Netzwerk und stellt alles mit ein paar Haken ein. Es verändert keine Systemdateien, und alles lässt sich mit einem Klick wieder entfernen.
+Werbekacheln im Home-Menü, Firmware-Updates, die den Root wieder entfernen, ein Dutzend LG-Apps, die niemand braucht, und Live Plus, das mitschaut, was gerade läuft. **Die ModApp räumt das auf:** Das kostenlose Windows-Tool findet deinen TV im Netzwerk, und ein Assistent stellt mit ein paar Ja/Nein-Fragen alles ein. Es verändert keine Systemdateien, und alles lässt sich mit einem Klick wieder entfernen.
 
 <p align="center">
   <img src="bilder/1-uebersicht.png" width="760" alt="Übersicht: Status aller Funktionen und Daten des Fernsehers">
@@ -32,13 +32,16 @@ Werbekacheln im Home-Menü, Firmware-Updates, die den Root wieder entfernen, ein
 
 ## So geht's
 
-| 1️⃣ Verbinden | 2️⃣ Installieren | 3️⃣ Einstellen |
+| 1️⃣ Starten | 2️⃣ Fragen beantworten | 3️⃣ Übernehmen |
 |---|---|---|
-| App starten. Sie sucht den TV im Netzwerk und verbindet sich. Beim ersten Mal einmal das root-Passwort eingeben (Homebrew-Standard: `alpine`). | In der Übersicht auf **Installieren** klicken. Ab jetzt wirkt alles sofort und nach jedem Neustart. | Funktionen an- und abschalten, Apps ausblenden, Tasten belegen. Fertig. |
+| App starten. Der Einrichtungs-Assistent öffnet sich, sucht den TV und verbindet sich. Beim ersten Mal einmal das root-Passwort eingeben (Homebrew-Standard: `alpine`). | Werbung weg? Flüssiger? Welche Apps nutzt du nie? Welche Farbtaste soll was öffnen? Die Empfehlung ist schon gewählt. | **Alles übernehmen** klicken. Ab jetzt wirkt alles sofort und nach jedem Neustart. Später lässt sich alles einzeln nachjustieren. |
 
 **Voraussetzung:** ein gerooteter LG-TV mit [Homebrew Channel](https://github.com/webosbrew/webos-homebrew-channel), dort **SSH** eingeschaltet. Rooten geht z. B. mit [RootMyTV](https://rootmy.tv/) oder [faultmanager-autoroot](https://github.com/throwaway96/faultmanager-autoroot), je nach Firmware.
 
 ## Funktionen
+
+**Einrichtungs-Assistent**
+- 🪄 **Alles in ein paar Minuten:** einfache Ja/Nein-Fragen zu Schutz, Tempo, Apps und Farbtasten, die Empfehlung ist schon gewählt. Erst ganz am Ende wird alles auf einmal übernommen, wer vorher abbricht, hat nichts verändert. Öffnet sich beim ersten Start von selbst und eignet sich auch zum späteren Nachjustieren.
 
 **Schutz & Datenschutz**
 - 🚫 **Werbung & Tracking blocken:** sperrt LGs Werbe- und Analyse-Server, eigene Domains lassen sich ergänzen. Content Store und Apps funktionieren weiter.
@@ -59,26 +62,47 @@ Werbekacheln im Home-Menü, Firmware-Updates, die den Root wieder entfernen, ein
 **Tasten**
 - 🎮 **Fernbedienung neu belegen** (über [LG Input Hook](https://github.com/Simon34545/lginputhook), die App installiert ihn auf Wunsch): Taste drücken, die App erkennt sie. Dann z. B. direkt auf Sky, Xbox oder YouTube schalten, Bildschirm aus mit Ton weiter, Ambilight an/aus, Taste abschalten. Wirkt sofort, ohne Neustart.
 
+**Ambilight** (für [Hyperion.NG](https://github.com/webosbrew/hyperion.ng-webos-loader) mit [PicCap](https://github.com/TBSniller/piccap) und [WLED](https://kno.wled.ge/)-Streifen)
+- 💡 **Alles auf einen Blick:** Läuft die Bildaufnahme, läuft Hyperion, leuchten die LED-Streifen? Ambilight mit einem Klick an und aus, Hyperion- und WLED-Einstellungen direkt öffnen, jeden Streifen kurz rot blinken lassen.
+- 📶 **Assistent für neuen Router oder neues WLAN:** Führt Schritt für Schritt mit Bildern durch, wie Fernseher und LED-Streifen (über das WLAN „WLED-AP“ mit dem Handy) ins neue WLAN kommen. Die App sieht live, wenn alles wieder da ist, lässt bei Bedarf jeden Streifen blinken und fragt, welcher es ist, und trägt die neuen Adressen in Hyperion ein. Vorher wird eine Sicherung angelegt.
+
 **Außerdem**
 - 🔄 **Startet der TV über die App neu, verbindet sie sich danach von selbst.**
+- 🖥️ **Scharf auf jedem Bildschirm:** passt sich der Windows-Skalierung pro Monitor an und passt auch auf kleine Laptop-Bildschirme.
 - ⬆️ **Updates mit einem Klick:** Die App meldet neue Versionen, lädt sie nach Rückfrage, prüft die Prüfsumme und startet neu.
 
 <table>
   <tr>
-    <td width="50%"><img src="bilder/2-funktionen.png" alt="Funktionen einzeln an- und abschalten"></td>
-    <td width="50%"><img src="bilder/3-apps.png" alt="LG-Apps ausblenden mit Erklärungen"></td>
+    <td width="50%"><img src="bilder/2-einrichtung.png" alt="Einrichtungs-Assistent mit Ja/Nein-Fragen"></td>
+    <td width="50%"><img src="bilder/3-funktionen.png" alt="Funktionen einzeln an- und abschalten"></td>
   </tr>
   <tr>
+    <td align="center">Einrichtungs-Assistent</td>
     <td align="center">Funktionen</td>
+  </tr>
+  <tr>
+    <td width="50%"><img src="bilder/4-apps.png" alt="LG-Apps ausblenden mit Erklärungen"></td>
+    <td width="50%"><img src="bilder/5-tasten.png" alt="Tasten der Fernbedienung neu belegen"></td>
+  </tr>
+  <tr>
     <td align="center">Apps ausblenden</td>
-  </tr>
-  <tr>
-    <td width="50%"><img src="bilder/4-tasten.png" alt="Tasten der Fernbedienung neu belegen"></td>
-    <td width="50%"><img src="bilder/5-info.png" alt="Info-Seite mit Updates"></td>
-  </tr>
-  <tr>
     <td align="center">Tasten belegen</td>
+  </tr>
+  <tr>
+    <td width="50%"><img src="bilder/6-ambilight.png" alt="Ambilight: Bildaufnahme, Hyperion und LED-Streifen auf einen Blick"></td>
+    <td width="50%"><img src="bilder/7-wlan-assistent.png" alt="Assistent für neuen Router: LED-Streifen mit dem Handy ins neue WLAN bringen"></td>
+  </tr>
+  <tr>
+    <td align="center">Ambilight</td>
+    <td align="center">Neuer Router oder neues WLAN</td>
+  </tr>
+  <tr>
+    <td width="50%"><img src="bilder/8-info.png" alt="Info-Seite mit Updates"></td>
+    <td width="50%"></td>
+  </tr>
+  <tr>
     <td align="center">Info &amp; Updates</td>
+    <td></td>
   </tr>
 </table>
 
@@ -119,6 +143,7 @@ Werbekacheln im Home-Menü, Firmware-Updates, die den Root wieder entfernen, ein
 - **Live Plus & Zuschauerdaten:** Einstellungen über LGs eigenen Einstellungsdienst. Die vorherigen Werte werden gesichert und beim Abschalten wiederhergestellt.
 - **Apps ausblenden:** Einträge in LGs Liste gelöschter Systemapps. Die App merkt sich, was sie selbst eingetragen hat, und nimmt beim Deinstallieren nur diese Einträge wieder heraus.
 - **Tasten:** `/home/root/.config/lginputhook/keybinds.json` von LG Input Hook, vorhandene Belegungen bleiben erhalten.
+- **Ambilight:** Ein- und Ausschalten über die Dienste von PicCap und Hyperion. Neue Adressen der LED-Streifen werden in Hyperions Datenbank `/home/root/.hyperion/db/hyperion.db` eingetragen, vorher wird sie als `hyperion.db.modapp-backup` gesichert.
 
 </details>
 
@@ -127,7 +152,7 @@ Werbekacheln im Home-Menü, Firmware-Updates, die den Root wieder entfernen, ein
 
 - **Update-Suche:** Die öffentliche Release-Seite auf GitHub wird höchstens einmal am Tag abgefragt.
 - **LG Input Hook installieren:** Nur wenn du auf „Installieren“ klickst. Dann liest die App den offiziellen Homebrew-Katalog (repo.webosbrew.org), und der Homebrew Channel lädt die App auf dem TV und prüft ihre Prüfsumme.
-- Sonst spricht die App nur mit deinem TV im Heimnetz.
+- Sonst spricht die App nur mit deinem TV und, für das Ambilight, mit den WLED-Streifen im Heimnetz.
 
 </details>
 
