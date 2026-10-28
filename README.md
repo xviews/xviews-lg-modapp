@@ -68,7 +68,7 @@ Werbekacheln im Home-Menü, Firmware-Updates, die den Root wieder entfernen, ein
 
 **Ambilight** (für [Hyperion.NG](https://github.com/webosbrew/hyperion.ng-webos-loader) mit [PicCap](https://github.com/TBSniller/piccap) und [WLED](https://kno.wled.ge/)-Streifen)
 - 💡 **Alles auf einen Blick:** Läuft die Bildaufnahme, läuft Hyperion, leuchten die LED-Streifen? Ambilight mit einem Klick an und aus, Hyperion- und WLED-Einstellungen direkt öffnen, jeden Streifen kurz rot blinken lassen.
-- 📶 **Assistent für neuen Router oder neues WLAN:** Führt Schritt für Schritt mit Bildern durch, wie Fernseher und LED-Streifen (über das WLAN „WLED-AP“ mit dem Handy) ins neue WLAN kommen. Die App sieht live, wenn alles wieder da ist, lässt bei Bedarf jeden Streifen blinken und fragt, welcher es ist, und trägt die neuen Adressen in Hyperion ein. Vorher wird eine Sicherung angelegt.
+- 📶 **Assistent für neuen Router oder neues WLAN:** Führt Schritt für Schritt mit Bildern durch, wie Fernseher und LED-Streifen ins neue WLAN kommen. Hat der PC WLAN, erledigt er das für die Streifen selbst: kurz mit „WLED-AP“ verbinden, dein WLAN eintragen, zurück ins eigene Netz. Sonst geht es mit dem Handy. Die App sieht live, wenn alles wieder da ist, lässt bei Bedarf jeden Streifen blinken und fragt, welcher es ist, und trägt die neuen Adressen in Hyperion ein. Vorher wird eine Sicherung angelegt.
 
 <p align="center">
   <img src="bilder/wlan-assistent.gif" width="640" alt="Router-Assistent: LED-Streifen finden, erkennen und wieder mit dem Ambilight verbinden">
@@ -77,7 +77,7 @@ Werbekacheln im Home-Menü, Firmware-Updates, die den Root wieder entfernen, ein
 **Außerdem**
 - 🔄 **Startet der TV über die App neu, verbindet sie sich danach von selbst.**
 - 🖥️ **Scharf auf jedem Bildschirm:** passt sich der Windows-Skalierung pro Monitor an und passt auch auf kleine Laptop-Bildschirme.
-- ⬆️ **Updates mit einem Klick:** Die App meldet neue Versionen, lädt sie nach Rückfrage, prüft die Prüfsumme und startet neu.
+- ⬆️ **Updates mit einem Klick:** Gibt es eine neue Version, zeigt die App einmal kurz, was neu ist. Ein Klick lädt sie, prüft die Prüfsumme und startet neu.
 
 <table>
   <tr>
@@ -161,6 +161,7 @@ Werbekacheln im Home-Menü, Firmware-Updates, die den Root wieder entfernen, ein
 - **Update-Suche:** Die öffentliche Release-Seite auf GitHub wird höchstens einmal am Tag abgefragt.
 - **LG Input Hook installieren:** Nur wenn du auf „Installieren“ klickst. Dann liest die App den offiziellen Homebrew-Katalog (repo.webosbrew.org), und der Homebrew Channel lädt die App auf dem TV und prüft ihre Prüfsumme.
 - Sonst spricht die App nur mit deinem TV und, für das Ambilight, mit den WLED-Streifen im Heimnetz.
+- **LED-Streifen mit dem PC einrichten:** Nur wenn du auf „Streifen einrichten“ klickst. Dann verbindet sich das WLAN des PCs mit einem vorübergehenden Profil kurz mit „WLED-AP“ und kehrt danach in sein vorheriges Netz zurück; das Profil wird wieder gelöscht. Dein WLAN-Passwort geht nur an den Streifen und wird nicht gespeichert.
 
 </details>
 
