@@ -43,6 +43,10 @@ Werbekacheln im Home-Menü, Firmware-Updates, die den Root wieder entfernen, ein
 **Einrichtungs-Assistent**
 - 🪄 **Alles in ein paar Minuten:** einfache Ja/Nein-Fragen zu Schutz, Tempo, Apps und Farbtasten, die Empfehlung ist schon gewählt. Erst ganz am Ende wird alles auf einmal übernommen, wer vorher abbricht, hat nichts verändert. Öffnet sich beim ersten Start von selbst und eignet sich auch zum späteren Nachjustieren.
 
+<p align="center">
+  <img src="bilder/einrichtung.gif" width="640" alt="Einrichtungs-Assistent: Fragen beantworten, am Ende alles übernehmen">
+</p>
+
 **Schutz & Datenschutz**
 - 🚫 **Werbung & Tracking blocken:** sperrt LGs Werbe- und Analyse-Server, eigene Domains lassen sich ergänzen. Content Store und Apps funktionieren weiter.
 - 🛡️ **Firmware-Updates blocken:** Ein Update entfernt den Root. Die Sperre greift zusätzlich zu der im Homebrew Channel, auch wenn diese mal aus ist.
@@ -65,6 +69,10 @@ Werbekacheln im Home-Menü, Firmware-Updates, die den Root wieder entfernen, ein
 **Ambilight** (für [Hyperion.NG](https://github.com/webosbrew/hyperion.ng-webos-loader) mit [PicCap](https://github.com/TBSniller/piccap) und [WLED](https://kno.wled.ge/)-Streifen)
 - 💡 **Alles auf einen Blick:** Läuft die Bildaufnahme, läuft Hyperion, leuchten die LED-Streifen? Ambilight mit einem Klick an und aus, Hyperion- und WLED-Einstellungen direkt öffnen, jeden Streifen kurz rot blinken lassen.
 - 📶 **Assistent für neuen Router oder neues WLAN:** Führt Schritt für Schritt mit Bildern durch, wie Fernseher und LED-Streifen (über das WLAN „WLED-AP“ mit dem Handy) ins neue WLAN kommen. Die App sieht live, wenn alles wieder da ist, lässt bei Bedarf jeden Streifen blinken und fragt, welcher es ist, und trägt die neuen Adressen in Hyperion ein. Vorher wird eine Sicherung angelegt.
+
+<p align="center">
+  <img src="bilder/wlan-assistent.gif" width="640" alt="Router-Assistent: LED-Streifen finden, erkennen und wieder mit dem Ambilight verbinden">
+</p>
 
 **Außerdem**
 - 🔄 **Startet der TV über die App neu, verbindet sie sich danach von selbst.**
