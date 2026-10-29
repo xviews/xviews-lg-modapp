@@ -49,7 +49,8 @@ Werbekacheln im Home-Menü, Firmware-Updates, die den Root wieder entfernen, ein
 
 **Schutz & Datenschutz**
 - 🚫 **Werbung & Tracking blocken:** sperrt LGs Werbe- und Analyse-Server, eigene Domains lassen sich ergänzen. Content Store und Apps funktionieren weiter.
-- 🛡️ **Firmware-Updates blocken:** Ein Update entfernt den Root. Die Sperre greift zusätzlich zu der im Homebrew Channel, auch wenn diese mal aus ist.
+- 🛡️ **Firmware-Updates blocken:** Ein Update entfernt den Root. Die App sperrt jede Update-Adresse, die das Update-Programm des TVs kennt, zusätzlich zur Sperre im Homebrew Channel. Die Übersicht prüft an dieser Sperre vorbei, ob die Update-Server wirklich nicht erreichbar sind, und erkennt auch eine Sperre in der FRITZ!Box.
+- 🙅 **Update-Frage schließt sich von selbst:** Ohne Sperre im Router fragt LG kurz nach dem Einschalten, ob jetzt aktualisiert werden soll. Die App schließt diese Frage nach wenigen Sekunden, bevor jemand JA drückt. Wer keine Router-Sperre hat, kann die Frage auch **ganz verhindern:** Dann bekommt der TV erst etwa 40 Sekunden nach dem Einschalten Internet, und LGs Update-Suche findet nichts.
 - 🕵️ **Live Plus & Zuschauerdaten abschalten:** Live Plus erkennt per Bildabgleich, was läuft. Die App schaltet es aus und zieht die Zustimmung zu Zuschauerdaten, personalisierter Werbung und Weitergabe an Dritte zurück. Sprachsteuerung und Content Store bleiben.
 - 📡 **Telemetrie stoppen:** keine Diagnose-, Protokoll- und Absturzdaten mehr an LG.
 - 🔓 **App-Update-Zwang aufheben:** Verlangt LG ein Update, bevor eine App startet, leert die App diese Liste. Wichtig für YouTube AdFree. Der Content Store bleibt voll nutzbar.
@@ -61,7 +62,7 @@ Werbekacheln im Home-Menü, Firmware-Updates, die den Root wieder entfernen, ein
 **Apps**
 - 🗂️ **LG-Apps ausblenden,** die sich sonst nicht entfernen lassen (Musik, Browser, Galerie, Anleitung …). Mit Erklärung zu jeder App und einem Vorschlag, was weg kann. Auch Live TV, Programmführer, Screen Share und AirPlay, wer nur über HDMI schaut.
 - 🗑️ **Installierte Apps deinstallieren** und ausgeblendete Apps wieder einblenden.
-- ▶️ **YouTube-Logo statt AdFree-Pylon:** YouTube AdFree sieht im Menü wieder aus wie YouTube.
+- ▶️ **YouTube-Logo statt AdFree-Pylon:** YouTube AdFree sieht im Menü wieder aus wie YouTube. Ist noch das normale YouTube aus dem Store installiert, ersetzt die App es auf Nachfrage durch YouTube AdFree aus dem Homebrew-Katalog.
 
 **Tasten**
 - 🎮 **Fernbedienung neu belegen** (über [LG Input Hook](https://github.com/Simon34545/lginputhook), die App installiert ihn auf Wunsch): Taste drücken, die App erkennt sie. Dann z. B. direkt auf Sky, Xbox oder YouTube schalten, Bildschirm aus mit Ton weiter, Ambilight an/aus, Taste abschalten. Wirkt sofort, ohne Neustart.
@@ -72,6 +73,7 @@ Werbekacheln im Home-Menü, Firmware-Updates, die den Root wieder entfernen, ein
 - 🎨 **Testbilder:** vier Seiten in ihren Farben, ein Lauflicht einmal um das Bild und die Grundfarben. Der Fernseher zeigt dabei sein normales Bild.
 - 🩺 **Fehlersuche je Problem:** Bleibt dunkel, Farben an der falschen Stelle, falsche Farben, ruckelt, flackert oder nur ein Teil leuchtet: Für jedes Problem prüft die App gezielt, was es erklären kann, mit echten Messwerten (Bilder pro Sekunde, Funkverbindung vom TV zum Streifen, Stromgrenze …). Dazu ein kurzer Test am Streifen mit Rückfragen, der z. B. aus deinen Antworten die richtige Farbreihenfolge für WLED ausrechnet.
 - 🎚️ **Feinabstimmung:** Helligkeit und Farbstärke live am Streifen, Reaktion und Erkennung schwarzer Balken. Gespeichert wird erst auf Knopfdruck.
+- 🔧 **WLED optimal einstellen:** Schickt Hyperion nur Farbwerte per UDP, stellt die App auf die WLED-Steuerung um. Dann schaltet Hyperion den Streifen selbst ein und mit dem TV wieder aus. Dazu schaltet sie WLAN-Stromsparen am Controller ab, damit nichts ruckelt.
 - 📶 **Assistent für neuen Router oder neues WLAN:** Führt Schritt für Schritt mit Bildern durch, wie Fernseher und LED-Streifen ins neue WLAN kommen. Hat der PC WLAN, erledigt er das für die Streifen selbst: kurz mit „WLED-AP“ verbinden, dein WLAN eintragen, zurück ins eigene Netz. Ist das WLAN am PC aus, schaltet die App es dafür kurz ein. Sonst geht es mit dem Handy. Die App sieht live, wenn alles wieder da ist, lässt bei Bedarf jeden Streifen blinken und fragt, welcher es ist, und trägt die neuen Adressen in Hyperion ein. Vorher wird eine Sicherung angelegt.
 
 <p align="center">
@@ -157,8 +159,9 @@ Werbekacheln im Home-Menü, Firmware-Updates, die den Root wieder entfernen, ein
 <details>
 <summary><b>Was die App auf dem TV macht</b></summary>
 
-- Alle Dateien liegen in `/media/developer/debloat`, gestartet wird beim Hochfahren über `/var/lib/webosbrew/init.d/60-debloat` des Homebrew Channels.
+- Alle Dateien liegen in `/media/developer/debloat`, gestartet wird beim Hochfahren über `/var/lib/webosbrew/init.d/05-debloat` des Homebrew Channels.
 - **Werbeblock und Update-Sperre:** Einträge in einer Arbeitsspeicher-Kopie von `/etc/hosts`. Bewusst nicht geblockt: `ngfts.lge.com` (Bilder im Content Store) und die `*.lgtvsdp.com`-Server (App-Store, App-Start).
+- **Update-Frage:** Die App liest LGs Update-Frage aus dem System-Protokoll und schließt sie über LGs Benachrichtigungsdienst. Mit „Update-Frage ganz verhindern“ steht der DNS des TVs fest auf `127.0.0.1`; der Autostart trägt danach den echten DNS-Server in `/var/lib/misc/resolv.conf` ein. **Wartung → DNS zurücksetzen** stellt den DNS wieder auf automatisch.
 - **Telemetrie:** Die Dienste `remotelogger`, `uploadd` und `crashreportd` werden angehalten.
 - **Live Plus & Zuschauerdaten:** Einstellungen über LGs eigenen Einstellungsdienst. Die vorherigen Werte werden gesichert und beim Abschalten wiederhergestellt.
 - **Apps ausblenden:** Einträge in LGs Liste gelöschter Systemapps. Die App merkt sich, was sie selbst eingetragen hat, und nimmt beim Deinstallieren nur diese Einträge wieder heraus.
@@ -180,7 +183,7 @@ Werbekacheln im Home-Menü, Firmware-Updates, die den Root wieder entfernen, ein
 <details>
 <summary><b>Notfall: die App geht nicht mehr</b></summary>
 
-Per SSH oder Telnet die Datei `/var/lib/webosbrew/init.d/60-debloat` löschen und den TV neu starten. Alternativ im Homebrew Channel die Startskripte abschalten. Ausgeblendete Apps stehen in `/var/preferences/com.webos.applicationManager/deletedSystemAppList.json`, die Vorladeliste setzt `luna-send -n 1 luna://com.webos.service.config/reconfigure '{}'` zurück.
+Per SSH oder Telnet die Datei `/var/lib/webosbrew/init.d/05-debloat` löschen und den TV neu starten. Hat der TV mit „Update-Frage ganz verhindern“ kein Internet, am TV unter *Netzwerk* den DNS auf automatisch stellen. Alternativ im Homebrew Channel die Startskripte abschalten. Ausgeblendete Apps stehen in `/var/preferences/com.webos.applicationManager/deletedSystemAppList.json`, die Vorladeliste setzt `luna-send -n 1 luna://com.webos.service.config/reconfigure '{}'` zurück.
 
 </details>
 
