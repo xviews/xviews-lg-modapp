@@ -6,7 +6,7 @@
 
 <p align="center">
   <b>Mehr aus deinem gerooteten LG-TV holen, mit einem Klick.</b><br>
-  Werbung weg, Root geschützt, Apps aufgeräumt, Tasten frei belegt, Ambilight im Griff. Alles umkehrbar.
+  Werbung weg, Root geschützt, Apps aufgeräumt, Tasten frei belegt, Ambilight einrichten und Fehler finden. Alles umkehrbar.
 </p>
 
 <p align="center">
@@ -68,6 +68,10 @@ Werbekacheln im Home-Menü, Firmware-Updates, die den Root wieder entfernen, ein
 
 **Ambilight** (für [Hyperion.NG](https://github.com/webosbrew/hyperion.ng-webos-loader) mit [PicCap](https://github.com/TBSniller/piccap) und [WLED](https://kno.wled.ge/)-Streifen)
 - 💡 **Alles auf einen Blick:** Läuft die Bildaufnahme, läuft Hyperion, leuchten die LED-Streifen? Ambilight mit einem Klick an und aus, Hyperion- und WLED-Einstellungen direkt öffnen, jeden Streifen kurz rot blinken lassen.
+- 🧭 **LED-Anordnung einrichten:** Der Streifen zeigt live, wie Hyperion ihn sieht: jede Seite in ihrer Farbe, die ersten drei LEDs weiß als Anfang. Mit Plus und Minus Seiten, Anfang und Richtung einstellen, bis es passt. **Ecken prüfen** lässt nur die erste und letzte LED jeder Seite hell leuchten, **LEDs zählen** findet die echte Länge des Streifens (Zehnerblöcke in wechselnden Farben, Anfang blinkt, Ende weiß).
+- 🎨 **Testbilder:** vier Seiten in ihren Farben, ein Lauflicht einmal um das Bild und die Grundfarben. Der Fernseher zeigt dabei sein normales Bild.
+- 🩺 **Fehlersuche je Problem:** Bleibt dunkel, Farben an der falschen Stelle, falsche Farben, ruckelt, flackert oder nur ein Teil leuchtet: Für jedes Problem prüft die App gezielt, was es erklären kann, mit echten Messwerten (Bilder pro Sekunde, Funkverbindung vom TV zum Streifen, Stromgrenze …). Dazu ein kurzer Test am Streifen mit Rückfragen, der z. B. aus deinen Antworten die richtige Farbreihenfolge für WLED ausrechnet.
+- 🎚️ **Feinabstimmung:** Helligkeit und Farbstärke live am Streifen, Reaktion und Erkennung schwarzer Balken. Gespeichert wird erst auf Knopfdruck.
 - 📶 **Assistent für neuen Router oder neues WLAN:** Führt Schritt für Schritt mit Bildern durch, wie Fernseher und LED-Streifen ins neue WLAN kommen. Hat der PC WLAN, erledigt er das für die Streifen selbst: kurz mit „WLED-AP“ verbinden, dein WLAN eintragen, zurück ins eigene Netz. Ist das WLAN am PC aus, schaltet die App es dafür kurz ein. Sonst geht es mit dem Handy. Die App sieht live, wenn alles wieder da ist, lässt bei Bedarf jeden Streifen blinken und fragt, welcher es ist, und trägt die neuen Adressen in Hyperion ein. Vorher wird eine Sicherung angelegt.
 
 <p align="center">
@@ -105,12 +109,20 @@ Werbekacheln im Home-Menü, Firmware-Updates, die den Root wieder entfernen, ein
     <td align="center">Neuer Router oder neues WLAN</td>
   </tr>
   <tr>
-    <td width="50%"><img src="bilder/8-info.png" alt="Info-Seite mit Updates"></td>
-    <td width="50%"></td>
+    <td width="50%"><img src="bilder/9-led-anordnung.png" alt="LED-Anordnung mit Live-Vorschau am Streifen"></td>
+    <td width="50%"><img src="bilder/10-fehlersuche.png" alt="Fehlersuche mit Prüfungen und Test am Streifen"></td>
   </tr>
   <tr>
+    <td align="center">LED-Anordnung</td>
+    <td align="center">Fehlersuche</td>
+  </tr>
+  <tr>
+    <td width="50%"><img src="bilder/11-testbilder.png" alt="Testbilder für das Ambilight"></td>
+    <td width="50%"><img src="bilder/8-info.png" alt="Info-Seite mit Updates"></td>
+  </tr>
+  <tr>
+    <td align="center">Testbilder</td>
     <td align="center">Info &amp; Updates</td>
-    <td></td>
   </tr>
 </table>
 
@@ -151,7 +163,7 @@ Werbekacheln im Home-Menü, Firmware-Updates, die den Root wieder entfernen, ein
 - **Live Plus & Zuschauerdaten:** Einstellungen über LGs eigenen Einstellungsdienst. Die vorherigen Werte werden gesichert und beim Abschalten wiederhergestellt.
 - **Apps ausblenden:** Einträge in LGs Liste gelöschter Systemapps. Die App merkt sich, was sie selbst eingetragen hat, und nimmt beim Deinstallieren nur diese Einträge wieder heraus.
 - **Tasten:** `/home/root/.config/lginputhook/keybinds.json` von LG Input Hook, vorhandene Belegungen bleiben erhalten.
-- **Ambilight:** Ein- und Ausschalten über die Dienste von PicCap und Hyperion. Neue Adressen der LED-Streifen werden in Hyperions Datenbank `/home/root/.hyperion/db/hyperion.db` eingetragen, vorher wird sie als `hyperion.db.modapp-backup` gesichert.
+- **Ambilight:** Ein- und Ausschalten über die Dienste von PicCap und Hyperion. Neue Adressen der LED-Streifen, LED-Anordnung und Feinabstimmung werden in Hyperions Datenbank `/home/root/.hyperion/db/hyperion.db` eingetragen, vorher wird sie als `hyperion.db.modapp-backup` gesichert. Testbilder und Live-Vorschau laufen über Hyperions JSON-Schnittstelle und direkt über WLED und verändern nichts dauerhaft: Danach bekommt jeder Streifen seinen vorherigen Zustand zurück.
 
 </details>
 
